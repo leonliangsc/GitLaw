@@ -5,11 +5,13 @@
  - WikiAPI/Web scraping/Web archive
 
 🔄Processing: 
- - process real time changes using Kafka, stored as key-sorted-key-value pairs in NoSQL database (Cassandra). Automate 
+ - storing entries as key-sorted-key-value pairs in NoSQL database Cassandra. 
+ - processing real time changes using Kafka
+
 
 ⬅️Output: 
  - real time Wikipedia in Cassandra
- - CLI tool mimicks git log/blame/revert (optional)
+ - CLI tool mimicking `git log/blame/revert` 
 
 Use case:
 1. Revert malicious Wiki entry vandalism

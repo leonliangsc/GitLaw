@@ -5,7 +5,8 @@
  - WikiAPI/Web scraping/Web archive
 
 🔄Processing: 
- - storing entries as key-sorted-key-value pairs in NoSQL database Cassandra. 
+ - processing Wikipedia data dump and storing in Spark
+ - querying entries as key-sorted-key-value pairs in NoSQL database Cassandra. 
  - processing real time changes using Kafka
 
 

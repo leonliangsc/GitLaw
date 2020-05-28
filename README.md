@@ -1,7 +1,7 @@
 # WikiVersionControl
 ### Git Version Control, but for Wikipedia.
 ----
-:rightarrow:  Input: WikiAPI/Web scraping/Web archive
+➡️Input: WikiAPI/Web scraping/Web archive
 
 Processing: process real time changes using Kafka, stored as key-sorted-key-value pairs in NoSQL database (Cassandra). Automate 
 

@@ -16,7 +16,7 @@
  - querying entries as key-sorted-key-value pairs in NoSQL database Cassandra. 
  - processing real time changes using Kafka and pipe into Spark
  
- ![Data pipeline](https://drive.google.com/drive/folders/1gzjnUHGAppNoJebOcm8dRrgcPg_Bz0DE)
+ ![Data pipeline](https://github.com/leonliangsc/GitLaw/blob/master/Data%20Pipeline.png)
 
 
 ⬅️Output: 

@@ -1,25 +1,35 @@
-# WikiVersionControl
-### Git Version Control, but for Wikipedia.
+# GitLaw ⚖️
+### Version Control for Laws and Legal Documents.
+### :pen:: Leon Liang
 ----
-➡️Input: 
- - WikiAPI/Web scraping/Web archive
+
+#### Use case:
+ - [Help making the creation and passage of legislation a more transparant process.](https://blog.abevoelker.com/gitlaw-github-for-laws-and-legal-documents-a-tourniquet-for-american-liberty/)
+ 
+ 
+➡️Data sources: 
+ - [Library of Congress](https://www.congress.gov/advanced-search/legislation) and its [data dump](https://github.com/usgpo/bulk-data)
+ - [Congressional Record](https://www.congress.gov/congressional-record)
 
 🔄Processing: 
- - processing Wikipedia data dump and storing in Spark
+ - storing LOC data dump in AWS S3, processing in batch using Spark
  - querying entries as key-sorted-key-value pairs in NoSQL database Cassandra. 
- - processing real time changes using Kafka
+ - processing real time changes using Kafka and pipe into Spark
+ 
+ ![Data pipeline](https://drive.google.com/drive/folders/1gzjnUHGAppNoJebOcm8dRrgcPg_Bz0DE)
 
 
 ⬅️Output: 
- - real time Wikipedia in Cassandra
+ - real time U.S. Laws and Legislation in Cassandra
+ - public facing API
+ - web hook
  - CLI tool mimicking `git log/blame/revert` 
 
-Use case:
-1. Revert malicious Wiki entry vandalism
-2. Look up/ compare previous entry definition
 
-Engineering Challenge: 
-1. Change-date-capture (CDC)
-2. Database Schema design
+
+:gear:Engineering Challenge: 
+1. [Tracking evolution of data at large scale](https://sites.google.com/insightdatascience.com/de-la-fellow-hub-2020b/pre-session/project-prep/project-seeds#h.p_bFdKFDhnY8FI)
+2. Change-date-capture (CDC)
+3. Database Schema design
 
 

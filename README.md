@@ -8,6 +8,7 @@
  
  
 ➡️Data sources: 
+ - file format: xml
  - [Library of Congress](https://www.congress.gov/advanced-search/legislation) and its [data dump](https://github.com/usgpo/bulk-data)
  - [Congressional Record](https://www.congress.gov/congressional-record)
 

@@ -54,11 +54,11 @@
 
 
 
-:gear:Engineering Challenge: 
+## :gear:Engineering Challenge: 
 1. [Tracking evolution of data at large scale](https://sites.google.com/insightdatascience.com/de-la-fellow-hub-2020b/pre-session/project-prep/project-seeds#h.p_bFdKFDhnY8FI)
 2. Change-date-capture (CDC)
 3. Database Schema design
 
-:robot:Trade-offs:
+## :robot:Trade-offs:
  - todo
 

@@ -1,5 +1,5 @@
 # GitLaw ⚖️
-### Version Control for Laws and Legislations. [Help making the creation and passage of legislation a more transparant process.](https://blog.abevoelker.com/gitlaw-github-for-laws-and-legal-documents-a-tourniquet-for-american-liberty/)
+### Version Control for Laws and Legislations that [helps making the creation and passage of legislation a more transparant process.](https://blog.abevoelker.com/gitlaw-github-for-laws-and-legal-documents-a-tourniquet-for-american-liberty/)
 ### :pen:: Leon Liang
 ----
 

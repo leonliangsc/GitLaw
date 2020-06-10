@@ -4,8 +4,8 @@ import org.apache.spark.SparkContext._
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.SQLContext
 import scala.collection.JavaConverters._
-import com.amazonaws.services.s3.AmazonS3Client
-import com.amazonaws.services.s3.model.ListObjectsV2Request
+// import com.amazonaws.services.s3.AmazonS3Client
+// import com.amazonaws.services.s3.model.ListObjectsV2Request
 
 
 object Processor {

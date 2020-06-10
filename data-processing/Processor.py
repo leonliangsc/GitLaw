@@ -10,9 +10,9 @@ class Processor:
         house = ["hconres", "hjres", "hr", "hres", "s", "sconres", "sjres", "sres"]
         textVersion = "text-versions"
 
-
-        lines = spark.read.json("s3a://gitlawbucket/116/bills/sconres/sconres1/data.json")
+        lines = spark.read.option("multiLine", "true").option("mode", "PERMISSIVE").json("s3a://gitlawbucket/116/bills/sconres/sconres1/data.json")
         print(lines.first())
+        
 
 
     if __name__ == "__main__":

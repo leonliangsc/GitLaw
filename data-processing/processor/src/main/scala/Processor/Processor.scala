@@ -26,8 +26,12 @@ object Processor extends App{
     .appName("Processor")
     .getOrCreate()
 
+
+  // TODO: recursively get all metadata file and text files
   // read in meta data from data.json
   val df = spark.read.option("multiLine", true).option("mode", "PERMISSIVE").json("s3a://gitlawbucket/116/bills/sconres/sconres1/data.json")
+
+  // TODO: get spark context sc
   val dir = sc.wholeTextFiles("s3a://gitlawbucket/116/bills/sconres/sconres1/")
 
   // collect info about directory

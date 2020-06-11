@@ -11,7 +11,7 @@
  
 ## Architecture
 
- ![Data pipeline](https://github.com/leonliangsc/GitLaw/blob/master/Data%20Pipeline%20(1).png)
+ ![Data pipeline](https://github.com/leonliangsc/GitLaw/blob/master/images/Data%20Pipeline%20(1).png)
 
 ## Dataset
 

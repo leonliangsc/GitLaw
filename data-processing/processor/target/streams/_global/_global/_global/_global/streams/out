@@ -1,0 +1,5 @@
+[0m[[0m[0mdebug[0m] [0m[0m[watch] [processor / Compile / run] Found inputs: /home/ubuntu/GitLaw/data-processing/processor/*.{java,scala},/home/ubuntu/GitLaw/data-processing/processor/src/main/java/**/*.{java,scala},/home/ubuntu/GitLaw/data-processing/processor/src/main/resources/**/*,/home/ubuntu/GitLaw/data-processing/processor/src/main/scala/**/*.{java,scala},/home/ubuntu/GitLaw/data-processing/processor/src/main/scala-2.12/**/*.{java,scala}[0m
+[0m[[0m[0minfo[0m] [0m[0m1. Monitoring source files for processor/run...[0m
+[0m[[0m[0minfo[0m] [0m[0m   Press <enter> to interrupt or '?' for more options.[0m
+[0m[[0m[0mdebug[0m] [0m[0m[watch] [debug] Received input event: Run().[0m
+[0m[[0m[0mdebug[0m] [0m[0m[watch] [debug] Received input event: Run().[0m

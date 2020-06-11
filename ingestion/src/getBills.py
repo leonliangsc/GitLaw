@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 
 class getBills:
     def main():
-        api_key = "api_key=oEA3hx5DO6bju4YuvyDP4H9eTqbn1T9G8nlkhur6"
+        api_key = ""
         r = requests.get("https://api.govinfo.gov/collections/BILLS/2008-01-01T00:00:00Z/?offset=0&pageSize=5&%s" % (api_key))
         # print(r.status_code)
         packages = r.json()

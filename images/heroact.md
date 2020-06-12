@@ -8,7 +8,7 @@ For an additional amount for Child Nutrition Programs, $3,000,000,000 to remain 
 
 Special Supplemental Nutrition Program for Women, Infants, and Children (WIC)
 
-For an additional amount for the Special Supplemental Nutrition Program for Women, Infants, and Children, $1,100,000,000, to remain available through September 30, 2022: Provided, That such amount is designated by the Congress as being for an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985.
+For an additional amount for the Special Supplemental Nutrition Program for Women, Infants, and Children, $1,100,000,000, to remain available until September 30, 2022: Provided, That such amount is designated by the Congress as being for an emergency requirement pursuant to section 251(b)(2)(A)(i) of the Balanced Budget and Emergency Deficit Control Act of 1985.
 
 Supplemental Nutrition Assistance Program
 

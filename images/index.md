@@ -1,5 +1,25 @@
 Division A—Coronavirus Recovery Supplemental Appropriations Act, 2020
 
+Title I—Agriculture, Rural Development, Food and Drug Administration, and Related Agencies
+
+Title II—Commerce, Justice, Science, and Related Agencies
+
+Title III—Financial Services and General Government
+
+Title IV—Homeland Security
+
+Title V—Interior, Environment, and Related Agencies
+
+Title VI—Departments of Labor, Health and Human Services, and Education, and Related Agencies
+
+Title VII—Legislative Branch
+
+Title VIII—Department of State, Foreign Operations, and Related Programs
+
+Title IX—Transportation, Housing and Urban Development, and Related Agencies
+
+Title X—General Provisions—This Division
+
 Division B—Revenue provisions
 
 Title I—Economic stimulus
@@ -21,6 +41,8 @@ Title IV—Application to Other Health Programs
 Title V—Public Health Policies
 
 Title VI—Public Health Assistance
+
+Title VII—Other matters
 
 Division D—Retirement Provisions
 
@@ -70,7 +92,7 @@ Title I—Family Care for Essential Workers
 
 Title II—Pandemic Emergency Assistance and Services
 
-Title III—Program flexibility during the pandemic
+Title III—Program Flexibility During the Pandemic
 
 Division K—COVID–19 HERO Act
 
@@ -173,5 +195,7 @@ Title XIII—Coronavirus Relief Fund Amendments
 Title XIV—Rural Digital Opportunity
 
 Title XV—Foreign Affairs Provisions
+
+Title XVI—Scientific Integrity Act
 
 Division T—Additional Other Matters

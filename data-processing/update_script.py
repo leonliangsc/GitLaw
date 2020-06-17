@@ -6,8 +6,7 @@ from cassandra.cluster import Cluster
 
 def main():
     # get update since 12 hours ago
-    # time = (datetime.datetime.now() - timedelta(hours=12)).replace(microsecond=0).isoformat()
-    time = "2020-06-15T00:00:00"
+    time = (datetime.datetime.now() - timedelta(hours=12)).replace(microsecond=0).isoformat()
 
     govInfoAPIKey = "oEA3hx5DO6bju4YuvyDP4H9eTqbn1T9G8nlkhur6"
     collectionURL = "https://api.govinfo.gov/collections/BILLS/%sZ?offset=0&pageSize=100&congress=116&api_key=%s" % (time, govInfoAPIKey)
@@ -15,7 +14,7 @@ def main():
     packages = collection['packages']
     ids = set(map(lambda x: x['packageId'], packages))
     data = list(map(lambda x: getTxt(x), ids))
-    cassWriter(data[0])
+    cassWriter(data)
 
 def getTxt(package_id: str) -> (str, List[str], str):
     # get package summary
@@ -23,7 +22,7 @@ def getTxt(package_id: str) -> (str, List[str], str):
     summaryURL = "https://api.govinfo.gov/packages/%s/summary?api_key=%s" % (package_id, govInfoAPIKey)
     summary = requests.get(summaryURL).json()
     txtURL = summary['download']['txtLink'] + "?api_key=" + govInfoAPIKey
-    txt = requests.get(txtURL).text 
+    txt = requests.get(txtURL).text.replace('`', '\"').replace('\'', '\"')
     official_title = summary['title']
 
     # schema:
@@ -50,37 +49,31 @@ def getTxt(package_id: str) -> (str, List[str], str):
     return (package_id, txt, official_title, author)
 
 
-def cassWriter(obj) -> None:
+def cassWriter(data) -> None:
     # start a query session
     cluster = Cluster()
     session = cluster.connect('gitlaw')
-    rows = session.execute('SELECT bill_id FROM bills')
 
-    # get all existing id
-    all_ids = set(map(lambda x: x.bill_id, rows))
+    # print(data[0][0], data[0][1], data[0][2], data[0][3])
 
-    # write all rows to Cassandra TODO: test
-    for bill_id, txt, official_title, author in obj:
-        if bill_id in all_ids:
+    # write all rows to Cassandra
+    for (bill_id, txt, official_title, author) in data:
+        # check if this bill exist
+        exist = session.execute('SELECT * FROM bills WHERE bill_id=\'%s\'' % (bill_id))
+        if exist.one() != None:
             print("updating %s" % [bill_id])
             # bill exists, append latest version only
             counter = 0
-            version = session.execute("SELECT version%s FROM bills WHERE bill_id=%s" % (counter, bill_id))
+            version = session.execute("SELECT version%s FROM bills WHERE bill_id=\'%s\'" % (counter, bill_id))
             while version:
                 counter += 1
-                version = session.execute("SELECT version%s FROM bills WHERE bill_id=%s" % (counter, bill_id))
+                version = session.execute("SELECT version%s FROM bills WHERE bill_id=\'%s\'" % (counter, bill_id))
             counter += 1
-            session.execute("UPDATE bills SET version%s=%s WHERE bill_id=%s" % (counter, txt, bill_id))
+            session.execute("UPDATE bills SET version%s=%s WHERE bill_id=\'%s\'" % (counter, txt, bill_id))
         else:
             print("inserting %s" % [bill_id])
             # insert all
-            session.execute(
-                """
-                INSERT INTO bills (bill_id, version0, official_title, author)
-                VALUE (%s, %s, %s)
-                """,
-                (bill_id, txt, official_title, author)
-            )
+            session.execute("INSERT INTO bills (bill_id, version0, official_title) VALUES (\'%s\', \'%s\', \'%s\')" % (bill_id, txt, official_title))
 
 if __name__ == "__main__":
     main()

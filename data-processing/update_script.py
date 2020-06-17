@@ -2,6 +2,7 @@ import requests
 from datetime import date, timedelta
 from typing import List
 
+from cassandra.cluster import Cluster 
 
 def main():
     # get update since 12 hours ago
@@ -14,6 +15,8 @@ def main():
     packages = collection['packages']
     ids = set(map(lambda x: x['packageId'], packages))
     data = list(map(lambda x: getTxt(x), ids))
+    cassWriter(data[0])
+
 def getTxt(package_id: str) -> (str, List[str], str):
     # get package summary
     govInfoAPIKey = "oEA3hx5DO6bju4YuvyDP4H9eTqbn1T9G8nlkhur6"
@@ -46,6 +49,38 @@ def getTxt(package_id: str) -> (str, List[str], str):
         author = {"bioguide_id": "", "district": "", "name": "", "title": "", "type": ""}
     return (package_id, txt, official_title, author)
 
+
+def cassWriter(obj) -> None:
+    # start a query session
+    cluster = Cluster()
+    session = cluster.connect('gitlaw')
+    rows = session.execute('SELECT bill_id FROM bills')
+
+    # get all existing id
+    all_ids = set(map(lambda x: x.bill_id, rows))
+
+    # write all rows to Cassandra TODO: test
+    for bill_id, txt, official_title, author in obj:
+        if bill_id in all_ids:
+            print("updating %s" % [bill_id])
+            # bill exists, append latest version only
+            counter = 0
+            version = session.execute("SELECT version%s FROM bills WHERE bill_id=%s" % (counter, bill_id))
+            while version:
+                counter += 1
+                version = session.execute("SELECT version%s FROM bills WHERE bill_id=%s" % (counter, bill_id))
+            counter += 1
+            session.execute("UPDATE bills SET version%s=%s WHERE bill_id=%s" % (counter, txt, bill_id))
+        else:
+            print("inserting %s" % [bill_id])
+            # insert all
+            session.execute(
+                """
+                INSERT INTO bills (bill_id, version0, official_title, author)
+                VALUE (%s, %s, %s)
+                """,
+                (bill_id, txt, official_title, author)
+            )
 
 if __name__ == "__main__":
     main()

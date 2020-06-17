@@ -14,14 +14,18 @@
  	 2. make your contribution
 	 3. ?
 	 4. profit
+	 
+----
  
 ## Introduction
  - Version Control for Laws and Legislations that [helps making the creation and passage of legislation a more transparant process.](https://blog.abevoelker.com/gitlaw-github-for-laws-and-legal-documents-a-tourniquet-for-american-liberty/)
  
+------
 ## Architecture
 
  ![Data pipeline](https://github.com/leonliangsc/GitLaw/blob/master/images/Data%20Pipeline%20(1).png)
 
+----
 ## Dataset
 
 ➡️Data sources: 
@@ -30,7 +34,6 @@
  - [Congressional Record](https://www.congress.gov/congressional-record)
 
 🔄Processing: 
- - storing LOC data dump in AWS S3, processing in batch using Spark
  - getting files into S3 using [Congress web scraper](https://github.com/unitedstates/congress):
   	1. retrieving packages from collections of Bills
 	  ```json
@@ -63,13 +66,13 @@
  - web hook
  - CLI tool mimicking `git log/blame/revert` 
 
-
+----
 
 ## :gear:Engineering Challenge: 
 1. [Tracking evolution of data at large scale](https://sites.google.com/insightdatascience.com/de-la-fellow-hub-2020b/pre-session/project-prep/project-seeds#h.p_bFdKFDhnY8FI)
 2. Change-date-capture (CDC)
 3. Database Schema design
-
+----
 ## :robot:Trade-offs:
  - todo
 

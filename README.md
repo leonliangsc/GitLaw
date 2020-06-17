@@ -7,8 +7,9 @@
  - open a pull request
  - get access to source code
  	- Prerequisite
- 		1. install javajdk8 and Scala **2.11** (will run into compatibility issues with 2.12)
+ 		1. install Java8 and Scala **2.11** (will run into compatibility issues with 2.12)
  		2. install Spark, Cassandra on local machine/remote servers
+		3. install sbt for dependency management and packaging/shipping
 	 1. `git clone` this repo
  	 2. make your contribution
 	 3. ?
@@ -57,7 +58,7 @@
  
 
 ⬅️Output: 
- - real time U.S. Laws and Legislation in Cassandra
+ - up-to-date U.S. Laws and Legislation in Cassandra
  - public facing API
  - web hook
  - CLI tool mimicking `git log/blame/revert` 

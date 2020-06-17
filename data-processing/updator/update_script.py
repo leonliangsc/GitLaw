@@ -1,12 +1,12 @@
 import requests
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from typing import List
 
 from cassandra.cluster import Cluster 
 
 def main():
     # get update since 12 hours ago
-    time = (datetime.datetime.now() - timedelta(hours=12)).replace(microsecond=0).isoformat()
+    time = (datetime.now() - timedelta(hours=12)).replace(microsecond=0).isoformat()
 
     govInfoAPIKey = "oEA3hx5DO6bju4YuvyDP4H9eTqbn1T9G8nlkhur6"
     collectionURL = "https://api.govinfo.gov/collections/BILLS/%sZ?offset=0&pageSize=100&congress=116&api_key=%s" % (time, govInfoAPIKey)

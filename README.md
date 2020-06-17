@@ -4,7 +4,7 @@
 ----
 
 ## How to contribute
- 1. open a pull request
+ 1. open an issue
  2. get access to source code
  	- Prerequisite
  		1. install Java8 and Scala **2.11** (will run into compatibility issues with 2.12)
@@ -12,8 +12,9 @@
 		3. install sbt for dependency management and packaging/shipping
 	 1. `git clone` this repo
  	 2. make your contribution
-	 3. ?
-	 4. profit
+	 3. open a pull request
+	 4. ?
+	 5. profit
 	 
 ----
  

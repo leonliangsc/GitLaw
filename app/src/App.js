@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+const cassandra = require('cassandra-driver');
+
 function App() {
   return (
     <div className="App">

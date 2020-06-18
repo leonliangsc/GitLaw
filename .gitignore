@@ -1,3 +1,5 @@
 .metals
 data-processing/processor/.idea/*
 ._data-processing
+app/node_modules/*
+app/bower_modules/*

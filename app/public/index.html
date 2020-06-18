@@ -52,8 +52,16 @@
       <H2>Sponsor: </H2>
       <SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">
         var dmp = new diff_match_patch();
+
+        var response = "";
+        fetch("127.0.0.1:5000/bill/s1130-116").then(res => {
+          response = res.json()
+        })
+
+        console.log(response)
         
         function launch() {
+          console.log("launch")
           var text1 = document.getElementById('text1').value;
           var text2 = document.getElementById('text2').value;
           dmp.Diff_Timeout = parseFloat(document.getElementById('timeout').value);

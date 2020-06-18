@@ -53,15 +53,14 @@
       <SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">
         var dmp = new diff_match_patch();
 
-        var response = "";
-        fetch("127.0.0.1:5000/bill/s1130-116").then(res => {
-          response = res.json()
-        })
-
-        console.log(response)
-        
         function launch() {
-          console.log("launch")
+          var response = "";
+          fetch("127.0.0.1:5000/bill/s1130-116").then(res => {
+            response = res.json()
+          })
+
+          console.log(response)
+        
           var text1 = document.getElementById('text1').value;
           var text2 = document.getElementById('text2').value;
           dmp.Diff_Timeout = parseFloat(document.getElementById('timeout').value);
@@ -130,7 +129,9 @@
           I'm quite adept at funny gags, comedic theory I have read,
           From wicked puns and stupid jokes to anvils that drop on your head.</TEXTAREA></TD>
           </TR></TABLE>
-          
+
+          <P><INPUT TYPE="text" SIZE=8 MAXLENGTH=8 VALUE="1" ID="billid"> Bill ID<BR>
+
           <H3>Diff timeout:</H3>
           <P><INPUT TYPE="text" SIZE=3 MAXLENGTH=5 VALUE="1" ID="timeout"> seconds<BR>
           A timeout of '0' allows for unlimited computation.</P>

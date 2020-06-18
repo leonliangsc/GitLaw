@@ -2,9 +2,54 @@
 <html lang="en">
   <head>
     <TITLE>GitLaw</TITLE>
-    <SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" SRC="./diff_match_patch.js"></SCRIPT>  </head>
+    <SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript" SRC="./diff_match_patch.js"></SCRIPT>  
+    <style>
+      .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .dropbtn:hover, .dropbtn:focus {
+        background-color: #2980B9;
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      
+      .dropdown a:hover {background-color: #ddd;}
+      
+      .show {display: block;}
+      </style>
+  </head>
   <body>
     <div id="root"></div>
+    
+      <H1>GitLaw</H1>
+      <H2>Title: </H2>
+      <H2>Sponsor: </H2>
       <SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">
         var dmp = new diff_match_patch();
         
@@ -27,17 +72,51 @@
           var ds = dmp.diff_prettyHtml(d);
           document.getElementById('outputdiv').innerHTML = ds + '<BR>Time: ' + (ms_end - ms_start) / 1000 + 's';
         }
+
+        function drop1() {
+          document.getElementById("myDropdown1").classList.toggle("show");
+        }
+
+        function drop2() {
+          document.getElementById("myDropdown2").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+
         </SCRIPT>
         <FORM action="#" onsubmit="return false">
           <TABLE WIDTH="100%"><TR>
             <TD WIDTH="50%">
-          <H3>Text Version 1:</H3>
+          <div class="dropdown">
+            <button onclick="drop1()" class="dropbtn">Text version 1</button>
+            <div id="myDropdown1" class="dropdown-content">
+              <a href="#1">Text version 1</a>
+              <a href="#2">Text version 2</a>
+            </div>
+          </div>
           <TEXTAREA ID="text1" STYLE="width: 100%" ROWS=10>I am the very model of a modern Major-General,
           I've information vegetable, animal, and mineral,
           I know the kings of England, and I quote the fights historical,
           From Marathon to Waterloo, in order categorical.</TEXTAREA></TD>
             <TD WIDTH="50%">
-          <H3>Text Version 2:</H3>
+              <div class="dropdown">
+                <button onclick="drop2()" class="dropbtn">Text version 2</button>
+                <div id="myDropdown2" class="dropdown-content">
+                  <a href="#1">Text version 1</a>
+                  <a href="#2">Text version 2</a>
+                </div>
+              </div>
           <TEXTAREA ID="text2" STYLE="width: 100%" ROWS=10>I am the very model of a cartoon individual,
           My animation's comical, unusual, and whimsical,
           I'm quite adept at funny gags, comedic theory I have read,
@@ -46,9 +125,7 @@
           
           <H3>Diff timeout:</H3>
           <P><INPUT TYPE="text" SIZE=3 MAXLENGTH=5 VALUE="1" ID="timeout"> seconds<BR>
-          If the mapping phase of the diff computation takes longer than this, then the computation
-          is truncated and the best solution to date is returned.  While guaranteed to be correct,
-          it may not be optimal.  A timeout of '0' allows for unlimited computation.</P>
+          A timeout of '0' allows for unlimited computation.</P>
           
           <H3>Post-diff cleanup:</H3>
           <DL>

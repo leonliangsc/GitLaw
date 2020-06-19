@@ -1,4 +1,4 @@
-# GitLaw ⚖️
+# [GitLaw](https://gitlaw.info) ⚖️
 ### Version Control for Legislations
 ### :pen:: Leon Liang
 ----

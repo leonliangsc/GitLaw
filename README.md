@@ -4,8 +4,7 @@
 ----
 
 ## How to contribute
- 1. open an issue
- 2. get access to source code
+ 1. get access to source code
  	- Prerequisite
  		1. install Java8 and Scala **2.11** (will run into compatibility issues with 2.12)
  		2. install Spark, Cassandra on local machine/remote servers

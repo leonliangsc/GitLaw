@@ -42,9 +42,7 @@
 ⬅️Output: 
  - up-to-date U.S. Laws and Legislation in Cassandra
  - public facing API
- - web hook
- - CLI tool mimicking `git log/blame/revert` 
-
+ - A [minimal web UI](https://gitlaw.info)
 ----
 
 ## :gear:Engineering Challenge: 
@@ -53,5 +51,12 @@
 3. Database Schema design
 ----
 ## :robot:Trade-offs:
- - todo
+ - NoSQL vs SQL
+ 	1. Due to the less-oftenly-changed nature of law schema, GitLaw can live with just one table, thus eliminating join operation and providing better performance
+	2. When working with just one table, I value the speed of retrieval and ease of scalability.
+	3. Overall, the ease of use is the main concern when building a 4 week MVP.
+ - Spark RDD vs Dataframe
+ 	1. Dataframe being a table-structured data object, would have been, in the hindsight, a better choice for working with JSON formatted file
+	2. However, as far as I researched, operations on RDD are well-documented, thanks to Datastax.
+	3. The main concern is still the ease of development, RDD despite being a less suitable data object for my use case, allowed me to shorted dev time with its documentation.
 

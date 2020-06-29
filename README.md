@@ -20,6 +20,7 @@
  
 ## Introduction
  - Version Control for Laws and Legislations that [helps making the creation and passage of legislation a more transparant process.](https://blog.abevoelker.com/gitlaw-github-for-laws-and-legal-documents-a-tourniquet-for-american-liberty/)
+ - [Demo slides](https://docs.google.com/presentation/d/1l7Ic2Bcqq0mJu6397sm68Au6TVsOUGFCe3heFYluVxk/edit?usp=sharing)
  
 ------
 ## Architecture
